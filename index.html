@@ -255,9 +255,11 @@
 
   /* Stats strip */
   .hero-stats {
-    position: absolute; bottom: 60px; left: 300px;
     display: flex; gap: 60px;
+    margin-top: 60px;
     opacity: 0; animation: fadeUp .8s 1.2s forwards;
+    position: relative;
+    max-width: fit-content;
   }
   .stat { text-align: center; }
   .stat-num {
@@ -559,9 +561,18 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .hero-inner { gap: 40px; padding: 0 40px; }
+    .logo-wrap { width: 400px; height: 400px; }
+    .logo-wrap img { width: 280px; height: 280px; }
+  }
+
   @media (max-width: 900px) {
+    section { padding: 80px 0 !important; }
+    #hero { padding-top: 100px; padding-bottom: 40px; min-height: auto; }
+    
     .container { padding: 0 24px; }
-    nav { padding: 18px 24px; }
+    nav { padding: 16px 24px !important; }
     
     .menu-toggle { display: flex; }
     .nav-links {
@@ -571,42 +582,65 @@
       transition: right .4s cubic-bezier(0.23, 1, 0.32, 1);
       backdrop-filter: blur(20px);
       z-index: 100;
+      gap: 32px;
     }
     .nav-links.active { right: 0; }
-    .nav-links a { font-size: 1.5rem; }
+    .nav-links a { font-size: 1.2rem; letter-spacing: 4px; }
+    .nav-cta { padding: 12px 32px !important; }
 
-    #hero { flex-direction: column; justify-content: center; padding-top: 120px; padding-bottom: 60px; height: auto; min-height: 100vh; }
-    .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; padding: 0 24px; }
-    .hero-sub { margin: 24px auto 0; }
-    .hero-actions { justify-content: center; }
-    .hero-visual { margin-top: 40px; }
-    .logo-wrap { width: 300px; height: 300px; margin: 0 auto; }
-    .logo-wrap img { width: 220px; height: 220px; }
-    .logo-ring:nth-child(3) { width: 340px; height: 340px; }
+    .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+    .hero-label { justify-content: center; }
+    .hero-sub { margin: 24px auto 0; font-size: 1rem; }
+    .hero-actions { justify-content: center; gap: 12px; }
+    .btn-primary, .btn-outline { padding: 14px 28px; font-size: .85rem; width: 100%; max-width: 300px; }
+    
+    .hero-visual { order: -1; margin-bottom: 20px; }
+    .logo-wrap { width: 280px; height: 280px; }
+    .logo-wrap img { width: 200px; height: 200px; }
+    .logo-ring:nth-child(1) { width: 260px; height: 260px; }
+    .logo-ring:nth-child(2) { width: 220px; height: 220px; }
+    .logo-ring:nth-child(3) { width: 300px; height: 300px; }
     .logo-ring:nth-child(4) { display: none; }
 
     .hero-stats {
-      position: relative; bottom: 0; left: auto; right: auto;
-      margin-top: 40px; width: 100%;
-      flex-wrap: wrap; gap: 24px; justify-content: center;
+      margin: 48px auto 0;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 32px; width: 100%; max-width: 500px;
+      justify-items: center;
     }
-    .stat-num { font-size: 1.6rem; }
+    .stat-num { font-size: 1.75rem; }
 
-    .services-grid { grid-template-columns: 1fr; }
-    .works-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; gap: 20px; }
+    .works-grid { grid-template-columns: 1fr; gap: 32px; }
     .work-card.featured { grid-column: auto; }
-    .process-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .work-thumb { height: 200px; }
+    
+    /* Make work button visible on mobile */
+    .work-overlay { opacity: 1; background: linear-gradient(0deg, rgba(7,13,26,0.8) 0%, transparent 100%); }
+    .work-overlay-btn { transform: none; }
+
+    .process-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     .process-grid::before { display: none; }
-    .contact-wrap { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 16px; text-align: center; }
+    
+    .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+    .contact-left { text-align: left; }
+    .contact-left h2 { text-align: center; }
+    .contact-left .section-tag { justify-content: center !important; }
+    .contact-info-item { justify-content: flex-start; }
+    .form-row { grid-template-columns: 1fr; }
+    
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 24px; }
   }
 
-  @media (max-width: 500px) {
-    .hero-stats { gap: 24px; }
-    .stat { flex: 1 1 40%; }
+  @media (max-width: 600px) {
+    h1 { font-size: 2.5rem; }
     .process-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
     .nav-logo { font-size: 1.1rem; }
+    .logo-wrap { width: 240px; height: 240px; }
+    .logo-wrap img { width: 170px; height: 170px; }
   }
+
 </style>
 </head>
 <body>
@@ -643,6 +677,13 @@
         <a href="#work" class="btn-primary">View Our Work</a>
         <a href="#contact" class="btn-outline">Start a Project</a>
       </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Projects Delivered</div></div>
+        <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
+        <div class="stat"><div class="stat-num">1+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support Available</div></div>
+      </div>
     </div>
 
     <div class="hero-visual">
@@ -656,12 +697,6 @@
     </div>
   </div>
 
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Projects Delivered</div></div>
-    <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
-    <div class="stat"><div class="stat-num">1+</div><div class="stat-label">Years Experience</div></div>
-    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support Available</div></div>
-  </div>
 </section>
 
 <!-- SERVICES -->
@@ -744,34 +779,34 @@
       <div class="work-card reveal">
         <div class="work-thumb">
           <!-- TODO: Add your project image link in the src below -->
-          <img src="public/orbit-preview.jpg" alt="Orbit App" class="work-thumb-image" style="background: #1a1040;" />
-          <div class="work-overlay"><a href="#contact" class="work-overlay-btn">View Case Study →</a></div>
+          <img src="public/Zad-El5er.png" alt="Zad El5er" class="work-thumb-image" style="background: #1a1040;" />
+          <div class="work-overlay"><a href="https://seif-83.github.io/Zad_El_5er/" class="work-overlay-btn">View the website →</a></div>
         </div>
         <div class="work-body">
           <div class="work-tags">
-            <span class="tag">Mobile App</span>
-            <span class="tag">Flutter</span>
-            <span class="tag">Firebase</span>
+            <span class="tag">React</span>
+            <span class="tag">Fire Base</span>
+            <span class="tag">Node.js</span>
           </div>
-          <h3>Orbit Logistics App</h3>
-          <p>Cross-platform delivery management app with live GPS tracking, driver coordination, and automated dispatch for 50,000+ daily deliveries.</p>
+          <h3>Zad El5er</h3>
+          <p>Zad El5er is a platform that helps you to get the best products from the best sellers.</p>
         </div>
       </div>
 
       <div class="work-card reveal">
         <div class="work-thumb">
           <!-- TODO: Add your project image link in the src below -->
-          <img src="public/pulse-preview.jpg" alt="Pulse Portal" class="work-thumb-image" style="background: #0d2820;" />
-          <div class="work-overlay"><a href="#contact" class="work-overlay-btn">View Case Study →</a></div>
+          <img src="public/El3mmary.png" alt="El3mmary" class="work-thumb-image" style="background: #0d2820;" />
+          <div class="work-overlay"><a href="https://el3mmary-furniture.vercel.app/" class="work-overlay-btn">View the website →</a></div>
         </div>
         <div class="work-body">
           <div class="work-tags">
-            <span class="tag">Healthcare</span>
-            <span class="tag">Vue.js</span>
-            <span class="tag">PostgreSQL</span>
+            <span class="tag">React</span>
+            <span class="tag">Fire Base</span>
+            <span class="tag">NodeJS</span>
           </div>
-          <h3>Pulse Healthcare Portal</h3>
-          <p>HIPAA-compliant patient management system with telemedicine capabilities, appointment scheduling, and EHR integration for 30+ clinics.</p>
+          <h3>El3mmary for Furniture</h3>
+          <p>El3mmary for Furniture is a platform that helps you to get the best products from the best sellers.</p>
         </div>
       </div>
 
