@@ -375,7 +375,12 @@
     position: absolute; inset: 0;
     transition: transform .5s;
   }
-  .work-card:hover .work-thumb-bg { transform: scale(1.06); }
+  .work-thumb-image {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s;
+  }
+  .work-card:hover .work-thumb-bg, 
+  .work-card:hover .work-thumb-image { transform: scale(1.06); }
 
   .work-thumb-label {
     position: relative; z-index: 2;
@@ -702,10 +707,10 @@
 
     <div class="works-grid">
 
-      <div class="work-card featured reveal">
+      <div class="work-card reveal">
         <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: linear-gradient(135deg, #0a1628 0%, #091c3a 50%, #0d1f3c 100%);"></div>
-          <div class="work-thumb-label" style="color:#1a7fff;">SEIFINITY</div>
+          <!-- TODO: Add your project image link in the src below -->
+          <img src="public/Seifinity-platform.png" alt="Seifinity Platform" class="work-thumb-image" style="background: #0a1628;" />
           <div class="work-overlay"><a href="https://seifinity.vercel.app/" class="work-overlay-btn">View the website →</a></div>
         </div>
         <div class="work-body">
@@ -721,8 +726,8 @@
 
       <div class="work-card reveal">
         <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: linear-gradient(135deg, #0d1a2a 0%, #0a2240 100%);"></div>
-          <div class="work-thumb-label" style="color:#3de8f5; font-size: 3rem;">CELEBRJEE</div>
+          <!-- TODO: Add your project image link in the src below -->
+          <img src="public/Celebrjee.png" alt="Celebrjee" class="work-thumb-image" style="background: #0a2240;" />
           <div class="work-overlay"><a href="https://celebrjee.vercel.app/" class="work-overlay-btn">View the website →</a></div>
         </div>
         <div class="work-body">
@@ -738,8 +743,8 @@
 
       <div class="work-card reveal">
         <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: linear-gradient(135deg, #10102a 0%, #1a1040 100%);"></div>
-          <div class="work-thumb-label" style="color:#6b4cfa; font-size: 3rem;">ORBIT</div>
+          <!-- TODO: Add your project image link in the src below -->
+          <img src="public/orbit-preview.jpg" alt="Orbit App" class="work-thumb-image" style="background: #1a1040;" />
           <div class="work-overlay"><a href="#contact" class="work-overlay-btn">View Case Study →</a></div>
         </div>
         <div class="work-body">
@@ -755,8 +760,8 @@
 
       <div class="work-card reveal">
         <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: linear-gradient(135deg, #0a1e1a 0%, #0d2820 100%);"></div>
-          <div class="work-thumb-label" style="color:#00e5b0; font-size: 3rem;">PULSE</div>
+          <!-- TODO: Add your project image link in the src below -->
+          <img src="public/pulse-preview.jpg" alt="Pulse Portal" class="work-thumb-image" style="background: #0d2820;" />
           <div class="work-overlay"><a href="#contact" class="work-overlay-btn">View Case Study →</a></div>
         </div>
         <div class="work-body">
