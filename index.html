@@ -460,11 +460,25 @@
   .process-step p { color: var(--text-muted); font-size: .84rem; line-height: 1.65; }
 
   /* ── CONTACT ── */
-  #contact { padding: 120px 0 80px; }
+  #contact {
+    min-height: calc(100vh - 120px);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .contact-wrap {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: start;
+    display: grid; grid-template-columns: 1fr;
+    gap: 40px; align-items: center;
+    justify-items: center;
+    max-width: 980px;
+    width: 100%;
+  }
+
+  .contact-left {
+    max-width: 620px;
+    width: 100%;
   }
 
   .contact-left h2 { text-align: left; margin-bottom: 16px; }
@@ -722,7 +736,7 @@
         <p>Native and cross-platform apps for iOS and Android. Intuitive UX, seamless performance, and scalable architecture designed for millions of users.</p>
       </div>
       <div class="service-card reveal">
-        <div class="service-number">04</div>
+        <div class="service-number">03</div>
         <div class="service-icon">🎨</div>
         <h3>UI/UX Design</h3>
         <p>Research-driven design that balances beauty and usability. From wireframes to high-fidelity prototypes, we craft interfaces users love.</p>
@@ -852,7 +866,7 @@
 <section id="contact">
   <div class="container">
     <div class="contact-wrap">
-      <div class="contact-left reveal">
+      <div class="contact-left">
         <div class="section-tag" style="justify-content:flex-start; margin-bottom: 16px;">Let's Build Together</div>
         <h2>Start Your <em>Project</em></h2>
         <p>Have an idea? A problem to solve? Let's talk. We respond within 24 hours and offer a free discovery call to every new client.</p>
@@ -920,7 +934,6 @@
   <div class="footer-links">
     <a href="#services">Services</a>
     <a href="#work">Work</a>
-    <a href="#contact">Contact</a>
   </div>
 </footer>
 
